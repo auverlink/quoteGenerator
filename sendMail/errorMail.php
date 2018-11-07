@@ -12,5 +12,5 @@
 <div>
     <p>&nbsp;</p>
     <p>Une erreur est survenue lors de l'enregistrement de votre demande.</p>
-    <p>Veuillez la saisir à nouveau.</p> <!-- TODO Ajouter le lien vers le formulaire -->
+    <p><a href="http://localhost:8888/wordpress/commencez-votre-projet-web-demandez-un-devis/">Veuillez la saisir à nouveau.</a></p>
 </div>
