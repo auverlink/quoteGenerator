@@ -76,7 +76,7 @@ if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['marketing']
         <title>Demande de devis - Auverlink</title>
     </head>-->
 
-<body onload="aff_vitrine('non'); aff_commerce('non'); aff_seo('non'), blog_vitrine('non'), aff_marketing('non')"  >
+<body onload="aff_site('oui'); aff_vitrine('non'); aff_commerce('non'); aff_seo('non'), blog_vitrine('non'), aff_marketing('non')"  >
 
 
 <H1>Commencez votre projet web : demandez un devis</H1>
@@ -93,10 +93,12 @@ if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['marketing']
 <form method="post" action="">
 
     <!-- question 1 -->
+    <div id="block_site">
     <label>Quel type de site souhaitez-vous ?</label><br/>
-    <input type="radio" name="site" value="Site Vitrine"  onchange="aff_vitrine('oui'); aff_commerce('non')" />Site Vitrine<br/>
-    <input type="radio" name="site" value="Site E-commerce" onchange="aff_vitrine('non'); aff_commerce('oui')"/>Site E-commerce</br>
+    <input type="radio" name="site" value="Site Vitrine"  onchange="aff_vitrine('oui'); aff_commerce('non'); aff_marketing('non')" />Site Vitrine<br/>
+    <input type="radio" name="site" value="Site E-commerce" onchange="aff_vitrine('non'); aff_commerce('oui'); blog_vitrine('non'); aff_seo('non')"/>Site E-commerce</br>
              <br/>
+    </div>
 
     <!-- question 2 si réponse site vitrine -->
     <div id="block_vitrine">
@@ -157,6 +159,11 @@ if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['marketing']
 
 <!-- Fonctions JS -->
 <script>
+    function aff_site(action)
+    {
+        document.getElementById('block_site').style.display = (action == "oui")? "inline" : "none";
+    }
+
     function aff_vitrine(action){
         document.getElementById('block_vitrine').style.display = (action == "oui")? "inline" : "none";
     }
