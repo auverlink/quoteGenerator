@@ -230,7 +230,102 @@ function processForm()
     }
 }
 
+/*
+ * Gestion du message client à la fin de la demande de devis
+ */
+add_action('template_redirect', 'getMsgClient');
 
+function getMsgClient()
+{
+    if (isset($_POST['validateMsgClient']) && isset($_POST['messageClient'])){
+        if (wp_verify_nonce($_POST['messageClient'], 'sendMsgClient')){
+            if(!empty($_POST)) extract($_POST);
+
+            $lastname = $_POST['lastname'];
+            $firstname = $_POST['firstname'];
+            $email = $_POST['email'];
+            $phone = $_POST['phone'];
+            $fonction = $_POST['fonction'];
+            $enterprise = $_POST['enterprise'];
+            $message = $_POST['message'];
+            $pack = $_POST['pack'];
+
+            $dest="vanessa.asse@gmail.com";
+            $objet="Demande de devis via le site d'Auverlink";
+            $mess="
+    
+              \n";
+                    $mess.="Nom : $lastname
+            \n";
+                    $mess.="Prénom : $firstname
+            \n";
+                    $mess.="Email : $email
+            \n";
+                    $mess.="Téléphone: $phone
+            \n";
+                    $mess.="Fonction: $fonction
+            \n";
+                    $mess.="Entreprise: $enterprise
+            \n";
+                    $mess.="Message : $message
+            \n";
+                    $mess.="Pack : $pack
+            \n";
+                    $mess.="
+            \n";
+
+            $headers = "MIME-Version: 1.0\n";
+            $headers .= "content-type: text/html; charset=iso-8859-1\n";
+            $headers .= "From: vanessa.asse@gmail.com\n";
+            if (mail($dest,$objet,htmlspecialchars($mess),$headers)){
+                $url = "http://localhost:8888/wordpress/mail-bien-envoye/";
+                wp_safe_redirect($url);
+            }else{
+                $url = "http://localhost:8888/wordpress/demande-de-devis-votre-mail-na-pas-ete-envoye/";
+                wp_safe_redirect($url);
+            }
+        }
+    }
+}
+
+/*
+ * Gestion de l'affichage du shortcode du Mail OK
+ */
+// ajouter le shortcode pour afficher le contenu de SVPackP.php
+add_shortcode('mailOK', 'shortcode_mailOk');
+
+// Include le contenu de cette page
+function getMailOK() {
+    ob_start();
+    include 'wp-content/plugins/quoteGenerator/sendMail/mailOK.php';
+    return ob_get_clean();
+}
+
+// Créer un shortcode avec ce contenu
+function shortcode_mailOk(){
+    $mailOk = getMailOK();
+    return $mailOk;
+}
+
+
+/*
+ * Gestion de l'affichage du shortcode du Mail Error
+ */
+// ajouter le shortcode pour afficher le contenu de SVPackP.php
+add_shortcode('errorMail', 'shortcode_errorMail');
+
+// Include le contenu de cette page
+function getErrorMail() {
+    ob_start();
+    include 'wp-content/plugins/quoteGenerator/sendMail/errorMail.php';
+    return ob_get_clean();
+}
+
+// Créer un shortcode avec ce contenu
+function shortcode_errorMail(){
+    $errorMail = getErrorMail();
+    return $errorMail;
+}
 
 
 
