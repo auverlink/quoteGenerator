@@ -28,8 +28,10 @@ Cet accompagnement personnalisé comprend :
 
 <h2>Contactez-nous pour en savoir plus !</h2>
 
+<form method="post" action="">
 
-<form method="post" action="sendMail/send.php">
+    <?php wp_nonce_field('sendMsgClient', 'messageClient'); ?>
+
     Nom : <input name="lastname" type="text" required/><br/>
     Prénom : <input name="firstname" type="text" required /><br/>
     Mail :<input name="email" type="email" required /><br/>
@@ -38,10 +40,9 @@ Cet accompagnement personnalisé comprend :
     Entreprise : <input name="enterprise" type="text"/><br/>
     Message :<textarea name="message" cols="50" rows="5"></textarea><br/><br/>
 
-    <input name="pack" type="hidden" value="Site Vitrine : Pack Starter"/>
-    <input type="submit" value="Envoyez" />
+    <input name="pack" type="hidden" value="Site Vitrine : Pack Premium"/>
+    <input type="submit" name="validateMsgClient" value="Envoyez" />
 </form>
-
 
 </body>
 </html>
