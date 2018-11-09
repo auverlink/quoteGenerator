@@ -8,7 +8,7 @@
 
 <H1>Commencez votre projet web : demandez un devis</H1>
 
-<h2>La solution la plus adaptée à vos besoins est notre offre : "Site E-commece - Pack Premium".</h2>
+<h2>La solution la plus adaptée à vos besoins est notre offre : "Site E-commerce - Pack Premium".</h2>
 
 <h3>349€ HT/mois</h3>
 
