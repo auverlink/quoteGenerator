@@ -7,11 +7,13 @@
 
 <body>
 
-<H1>Commencez votre projet : demandez un devis</H1>
+<div class="qg-block-content-mail">
+    <h4>Votre demande de devis a bien été envoyée !</h4>
 
-<div>
-    <p>&nbsp;</p>
-    <p>Votre demande de devis a bien été envoyée !</p>
     <p>Nous allons revenir vers vous très rapidement.</p>
-    <p><a href="https://auverlink.ovh">Retour à la page d'accueil.</a></p>
+
+    <div class="qg-go-homepage">
+        <a href="https://auverlink.ovh">Retour à la page d'accueil</a>
+    </div>
+
 </div>

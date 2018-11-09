@@ -1,4 +1,197 @@
-.test{
-    color: cadetblue;
+/*Page Index */
+.qg-alert-question-require{
+    color: #fa3a5e;
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
+.qg-container-index{
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.qg-label-questions{
+    font-size:18px;
+    color: #3c3774;
+    padding-bottom: 15px;
+    font-weight: bolder;
+}
+
+.qg-radio-questions{
+    margin-left:10px;
+}
+
+.qg-radio-questions .label-radio{
+    position : relative;
+    font-size:18px;
+    left: 10px;
+    top:-15px;
+}
+
+.qg-radio-questions .option-input{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    position:relative;
+    height: 40px;
+    width: 40px;
+    background: #f1f1f1;
+    color:white;
+    cursor: pointer;
+    padding-bottom:5px;
+}
+
+.option-input:hover {
+    background: #9faab7;
+}
+
+.option-input:checked {
+    background: #17c5a9;
+}
+
+.option-input:checked::before {
+    height: 40px;
+    width: 40px;
+    position: absolute;
+    content: '✔';
+    display: inline-block;
+    font-size: 26.66667px;
+    text-align: center;
+    line-height: 40px;
+}
+.option-input:checked::after {
+    -webkit-animation: click-wave 0.65s;
+    -moz-animation: click-wave 0.65s;
+    animation: click-wave 0.65s;
+    background: #40e0d0;
+    content: '';
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.option-input.radio {
+    border-radius: 50%;
+}
+.option-input.radio::after {
+    border-radius: 50%;
+}
+
+
+.qg-send-button{
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    border-width: 5px!important;
+    border-color: #fa3a5e;
+    border-radius: 48px;
+    letter-spacing: 0px;
+    background-color: #fa3a5e;
+    cursor: pointer;
+    line-height:30px;
+    width:80px;
+
+}
+
+/* END PAGE INDEX */
+
+/* PACK */
+.qg-block-presentation-pack{
+    text-align:center;
+}
+
+.qg-name-pack{
+    color: #fa3a5e;
+    font-weight: bold;
+    line-height: 1em;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    font-size: 22px;
+}
+
+.qg-price-pack{
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 48px;
+    background-color: #17c5a9;
+    line-height:50px;
+    width:200px;
+    margin-top: 10px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.qg-block-content-pack{
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 30px;
+}
+
+.qg-tags{
+    font-weight: bold;
+    color: #fa3a5e;
+}
+
+.col-25 {
+    float: left;
+    width: 25%;
+    margin-top: 6px;
+}
+
+.col-75 {
+    float: left;
+    width: 75%;
+    margin-top: 6px;
+}
+
+input[type=text], input[type=tel], input[type=email], textarea {
+    width: 100%;
+    font-size: 14px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #ccc;
+    border-radius: 4px;
+    line-height: 25px;
+}
+
+.qg-send-form-client{
+    background-color: #17c5a9;
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+}
+
+/*END PACK*/
+
+/* MAIL */
+.qg-block-content-mail{
+    display: block;
+    text-align: center;
+}
+
+.qg-go-homepage{
+    color: #fa3a5e;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 48px;
+    background-color: #ffffff;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #fa3a5e;
+    line-height:50px;
+    width:250px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*END MAIL*/

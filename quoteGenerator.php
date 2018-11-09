@@ -7,7 +7,7 @@
 Plugin Name: QuoteGenerator
 Plugin URI:
 Description: Ce plugin permet de générer des devis sur-mesure à partir des packs produits de notre agence.
-Author: Vanessa Asse
+Author: L'équipe Auverlink
 Version: 1.0
 */
 
@@ -139,7 +139,7 @@ add_action( 'wp_enqueue_scripts', 'wpm_enqueue_styles' ); // style theme enfant
 
 function wpm_enqueue_styles()
 {
-    wp_enqueue_style( 'Twenty Seventeen', get_template_directory_uri() . '/style.css' ); // style theme enfant
+    wp_enqueue_style( 'agenceoc-theme', get_template_directory_uri() . '/style.css' ); // style theme enfant
     wp_enqueue_style( 'quoteGenerator', plugins_url('style.css', __FILE__)  ); // style plugin
 }
 
@@ -157,7 +157,7 @@ function processForm()
             // si site vitrine, one page, sans SEO
             if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['seo'])) {
                 if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "One page") && ($_POST['seo'] == "no")) {
-                    $url = 'http://localhost:8888/wordpress/site-vitrine-pack-starter/';
+                    $url = 'https://auverlink.ovh/pack-link-starter/';
                     wp_safe_redirect($url);
                 }
             }
@@ -167,13 +167,13 @@ function processForm()
                 // condition 2
                 // si site vitrine, one page avec seo, mais sans blog
                 if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "One page") && ($_POST['seo'] == "yes") && ($_POST['blog'] == "no")) {
-                    $url = 'http://localhost:8888/wordpress/site-vitrine-pack-medium/';
+                    $url = 'https://auverlink.ovh/pack-link-plus/';
                     wp_safe_redirect($url);
                 }
                 // condition 3
                 // si site vitrine, one page avec seo et blog
                 if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "One page") && ($_POST['seo'] == "yes") && ($_POST['blog'] == "yes")) {
-                    $url = "http://localhost:8888/wordpress/site-vitrine-pack-premium/";
+                    $url = "https://auverlink.ovh/pack-link-expert/";
                     wp_safe_redirect($url);
                 }
             }
@@ -182,13 +182,13 @@ function processForm()
                 //condition 4
                 // si site vitrine, entre 1 à 5 pages, sans blog
                 if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "Five pages sv") && ($_POST['blog'] == "no")) {
-                    $url = 'http://localhost:8888/wordpress/site-vitrine-pack-medium/';
+                    $url = 'https://auverlink.ovh/pack-link-plus/';
                     wp_safe_redirect($url);
                 }
                 // condition 5
                 // si site vitrine, entre 1 à 5 pages, avec blog
                 if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "Five pages sv") && ($_POST['blog'] == "yes")) {
-                    $url = "http://localhost:8888/wordpress/site-vitrine-pack-premium/";
+                    $url = "https://auverlink.ovh/pack-link-expert/";
                     wp_safe_redirect($url);
                 }
             }
@@ -198,13 +198,13 @@ function processForm()
                 // condition 6
                 // si site vitrine - 6 à 10 pages
                 if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "Ten pages sv")) {
-                    $url = "http://localhost:8888/wordpress/site-vitrine-pack-premium/";
+                    $url = "https://auverlink.ovh/pack-link-expert/";
                     wp_safe_redirect($url);
                 }
                 //condition 9
                 // si site e-commerce, + de 5 pages
                 if (($_POST['site'] == "Site E-commerce") && ($_POST['pages'] == "Ten pages")) {
-                    $url = "http://localhost:8888/wordpress/site-e-commerce-pack-premium/";
+                    $url = "https://auverlink.ovh/pack-link-expert-e-commerce/";
                     wp_safe_redirect($url);
                 }
             }
@@ -215,13 +215,13 @@ function processForm()
                 //condition 7
                 // si site e-commerce, 1 à 5 page, sans marketing
                 if (($_POST['site'] == "Site E-commerce") && ($_POST['pages'] == "Five pages") && ($_POST['marketing'] == "no")) {
-                    $url = "http://localhost:8888/wordpress/site-e-commerce-pack-medium/";
+                    $url = "https://auverlink.ovh/pack-link-plus-e-commerce/";
                     wp_safe_redirect($url);
                 }
                 // condition 8
                 // si site e-commerce, 1 à 5 page, avec marketing
                 if (($_POST['site'] == "Site E-commerce") && ($_POST['pages'] == "Five pages") && ($_POST['marketing'] == "yes")) {
-                    $url = "http://localhost:8888/wordpress/site-e-commerce-pack-premium/";
+                    $url = "https://auverlink.ovh/pack-link-expert-e-commerce/";
                     wp_safe_redirect($url);
                 }
             }
@@ -255,33 +255,33 @@ function getMsgClient()
             $mess="
     
               \n";
-                    $mess.="Nom : $lastname
+            $mess.="Nom : $lastname
             \n";
-                    $mess.="Prénom : $firstname
+            $mess.="Prénom : $firstname
             \n";
-                    $mess.="Email : $email
+            $mess.="Email : $email
             \n";
-                    $mess.="Téléphone: $phone
+            $mess.="Téléphone: $phone
             \n";
-                    $mess.="Fonction: $fonction
+            $mess.="Fonction: $fonction
             \n";
-                    $mess.="Entreprise: $enterprise
+            $mess.="Entreprise: $enterprise
             \n";
-                    $mess.="Message : $message
+            $mess.="Message : $message
             \n";
-                    $mess.="Pack : $pack
+            $mess.="Pack : $pack
             \n";
-                    $mess.="
+            $mess.="
             \n";
 
             $headers = "MIME-Version: 1.0\n";
             $headers .= "content-type: text/html; charset=iso-8859-1\n";
             $headers .= "From: vanessa.asse@gmail.com\n";
             if (mail($dest,$objet,htmlspecialchars($mess),$headers)){
-                $url = "http://localhost:8888/wordpress/mail-bien-envoye/";
+                $url = "https://auverlink.ovh/devis-mail-envoye/";
                 wp_safe_redirect($url);
             }else{
-                $url = "http://localhost:8888/wordpress/demande-de-devis-votre-mail-na-pas-ete-envoye/";
+                $url = "https://auverlink.ovh/devis-error-mail/";
                 wp_safe_redirect($url);
             }
         }

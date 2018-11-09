@@ -6,43 +6,46 @@
 </head>-->
 <body>
 
-<H1>Commencez votre projet web : demandez un devis</H1>
+<div class="qg-block-presentation-pack">
+    <h2>La solution la plus adaptée à vos besoins est...</h2>
+    <div class="qg-name-pack">Le "Pack Link Plus"</div>
+    <h4>Véritable plaquette commerciale pour accroître votre notoriété et développer votre clientèle.</h4>
+    <div class="qg-price-pack">199€ HT/mois</div>
+</div>
 
-<h2>La solution la plus adaptée à vos besoins est notre offre : "Site Vitrine - Pack Medium".</h2>
+<div class="qg-block-content-pack">
+    Cet accompagnement personnalisé comprend&nbsp;:
+    <ul>
+        <li><span class="qg-tags">1 à 5 page :</span> en fonction de vos besoins, nous déployons jusqu'à cinq pages sur votre site.</li>
+        <li><span class="qg-tags">Référencement naturel optimisé :</span> nous vous conseillons dans la rédaction des contenus de votre site afin d'optimiser au maximum le référencement de votre site
+            sur les moteurs de recherche.</li>
+        <li><span class="qg-tags">Maintenance & hébergement inclus :</span> nous assurons l'hébergement de votre site ainsi que sa maintenance durant l'année (mise à jour de votre site et de ses différents plugins).</li>
+        <li><span class="qg-tags">Design responsive :</span> nous vous proposons un modèle de page adaptable et lisible sur tous supports, du mobile à l'ordinateur.</li>
+        <li><span class="qg-tags">Fonctionnalités :</span> Nous développons pour vous un formulaire de contact, une Google Map et une galerie photos.</li>
+    </ul>
+    <br/>
+</div>
 
-<h3>199€ HT/mois</h3>
+<div class="qg-block-content-pack">
+    <h3>Contactez-nous pour en savoir plus !</h3><br/>
 
-Cet accompagnement personnalisé comprend :
-<ul>
-    <li><b>1 nom de domaine + 1 extension :</b> nous vous conseillons dans le choix du nom de domaine le plus adapté à votre projet.</li>
-    <li><b>1 à 5 page :</b> en fonction de vos besoins, nous déployons jusqu'à cinq pages sur votre site.</li>
-    <li><b>Site administrable :</b> nous mettons à votre disposition un site administrable facilement. Nous vous accompagnons dans sa prise en main.</li>
-    <li><b>Référencement naturel optimisé :</b> nous vous conseillons dans la rédaction des contenus de votre site afin d'optimiser au maximum le référencement de votre site
-        sur les moteurs de recherche.</li>
-    <li><b>Maintenance & hébergement inclus :</b> nous assurons l'hébergement de votre site ainsi que sa maintenance durant l'année (mise à jour de votre site et de ses différents plugins).</li>
-    <li><b>1 Template responsive :</b> nous vous proposons un modèle de page adaptable et lisible sur tous supports, du mobile à l'ordinateur.</li>
-    <li><b>Charte Graphique :</b> nous déclinons votre identité visuelle sur votre nouveau site si vous disposez d'une charte graphique.</li>
-    <li><b>Fonctionnalités :</b> Nous développons pour vous un formulaire de contact, une Google Map et une galerie photos.</li>
-</ul>
+    <form method="post" action="">
 
-<h2>Contactez-nous pour en savoir plus !</h2>
+        <?php wp_nonce_field('sendMsgClient', 'messageClient'); ?>
 
+        Nom : <input name="lastname" type="text" required/><br/><br/>
+        Prénom : <input name="firstname" type="text" required /><br/><br/>
+        Mail :<input name="email" type="email" required /><br/><br/>
+        Téléphone : <input name="phone" type="tel" required><br/><br/>
+        Fonction : <input name="fonction" type="text"/><br/><br/>
+        Entreprise : <input name="enterprise" type="text"/><br/><br/>
+        Message :<textarea name="message" cols="50" rows="5"></textarea><br/><br/>
 
-<form method="post" action="">
+        <input name="pack" type="hidden" value="Pack Link Plus"/>
+        <input type="submit" class="qg-send-form-client" name="validateMsgClient" value="Envoyez" />
+    </form>
 
-    <?php wp_nonce_field('sendMsgClient', 'messageClient'); ?>
-
-    Nom : <input name="lastname" type="text" required/><br/>
-    Prénom : <input name="firstname" type="text" required /><br/>
-    Mail :<input name="email" type="email" required /><br/>
-    Téléphone : <input name="phone" type="tel" required><br/>
-    Fonction : <input name="fonction" type="text"/><br/>
-    Entreprise : <input name="enterprise" type="text"/><br/>
-    Message :<textarea name="message" cols="50" rows="5"></textarea><br/><br/>
-
-    <input name="pack" type="hidden" value="Site Vitrine : Pack Medium"/>
-    <input type="submit" name="validateMsgClient" value="Envoyez" />
-</form>
+</div>
 
 </body>
 </html>
