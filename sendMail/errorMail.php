@@ -7,10 +7,10 @@
 
 <body>
 
-<H1>Commencez votre projet : demandez un devis</H1>
+<div class="qg-block-content-mail">
+    <h4>Une erreur est survenue lors de l'enregistrement de votre demande.</h4>
 
-<div>
-    <p>&nbsp;</p>
-    <p>Une erreur est survenue lors de l'enregistrement de votre demande.</p>
-    <p>Veuillez la saisir à nouveau.</p>
+    <div class="qg-go-homepage">
+        <a href="https://auverlink.ovh/devis/">Veuillez la saisir à nouveau</a>
+    </div>
 </div>
