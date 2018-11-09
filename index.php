@@ -1,70 +1,4 @@
 <?php
-// condition 1
-// si site vitrine, one page, sans SEO
-if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['seo'])) {
-    if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "One page") && ($_POST['seo'] == "no")) {
-        //header('http://localhost:8888/test-wordpress/');
-        header('location:SVPackStarter.php');
-        //$url = "http://localhost:8888/test-wordpress/site-vitrine-pack-starter/";
-        //get_page_pack ($url);
-    }
-}
-
-
-if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['seo']) && isset($_POST['blog'])) {
-    // condition 2
-    // si site vitrine, one page avec seo, mais sans blog
-    if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "One page") && ($_POST['seo'] == "yes") && ($_POST['blog'] == "no")) {
-        header('location:SVPackMedium.php');
-    }
-    // condition 3
-    // si site vitrine, one page avec seo et blog
-    if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "One page") && ($_POST['seo'] == "yes") && ($_POST['blog'] == "yes")) {
-        header('location:SVPackPremium.php');
-    }
-}
-
-if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['blog'])) {
-    //condition 4
-    // si site vitrine, entre 1 à 5 pages, sans blog
-    if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "Five pages sv") && ($_POST['blog'] == "no")) {
-        header('location:SVPackMedium.php');
-    }
-    // condition 5
-    // si site vitrine, entre 1 à 5 pages, avec blog
-    if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "Five pages sv") && ($_POST['blog'] == "yes")) {
-        header('location:SVPackPremium.php');
-    }
-}
-
-
-if (isset($_POST['site']) && isset($_POST['pages'])) {
-    // condition 6
-    // si site vitrine - 6 à 10 pages
-    if (($_POST['site'] == "Site Vitrine") && ($_POST['pages'] == "Ten pages sv")) {
-        header('location:SVPackPremium.php');
-    }
-    //condition 9
-    // si site e-commerce, + de 5 pages
-    if (($_POST['site'] == "Site E-commerce") && ($_POST['pages'] == "Ten pages")) {
-        header('location:SECPackPremium.php');
-    }
-}
-
-
-
-if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['marketing'])) {
-    //condition 7
-    // si site e-commerce, 1 à 5 page, sans marketing
-    if (($_POST['site'] == "Site E-commerce") && ($_POST['pages'] == "Five pages") && ($_POST['marketing'] == "no")) {
-        header('location:SECPackMedium.php');
-    }
-    // condition 8
-    // si site e-commerce, 1 à 5 page, avec marketing
-    if (($_POST['site'] == "Site E-commerce") && ($_POST['pages'] == "Five pages") && ($_POST['marketing'] == "yes")) {
-        header('location:SECPackPremium.php');
-    }
-}
 
 ?>
 
@@ -81,8 +15,8 @@ if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['marketing']
 
 <H1>Commencez votre projet web : demandez un devis</H1>
 
-<p>Vous avez un projet web en tête pour votre entreprise mais vous ne savez pas par quoi commencer.<br/>
-    Répondez à formulaire. Vous y trouverez la solution la plus adéquate.</p>
+<p>Vous avez un projet web en tête pour votre entreprise mais vous ne savez pas par quoi commencer.
+    Répondez à ce formulaire. Vous y trouverez la solution adaptée à vos besoins.</p>
 
 <div class="test">
     <p>
@@ -91,6 +25,8 @@ if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['marketing']
 </div>
 
 <form method="post" action="">
+
+    <?php wp_nonce_field('checkForm', 'checkFormWp'); ?>
 
     <!-- question 1 -->
     <div id="block_site">
@@ -102,7 +38,7 @@ if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['marketing']
 
     <!-- question 2 si réponse site vitrine -->
     <div id="block_vitrine">
-        <label>Combien de pages contiendra votre site ?</label><br/>
+        <label>Combien de pages contiendra votre site vitrine ?</label><br/>
         <input type="radio" name="pages" value="One page" onchange="aff_seo('oui'); blog_vitrine('non')" />Uniquement 1 page
         <br/>
         <input type="radio" name="pages" value="Five pages sv" onchange="aff_seo('non'); blog_vitrine('oui') "/>Entre 1 et 5 pages
@@ -113,7 +49,7 @@ if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['marketing']
 
     <!-- question 2 si réponse e-commerce -->
     <div id="block_commerce">
-        <label>Combien de pages contiendra votre site ?</label><br/>
+        <label>Combien de pages contiendra votre site e-commerce ?</label><br/>
         <input type="radio" name="pages" value="Five pages" onchange="aff_marketing('oui')" />Entre 1 et 5 pages
         <br />
         <input type="radio" name="pages" value="Ten pages" onchange="aff_marketing('non')" />De 6 à 10 pages
@@ -132,7 +68,7 @@ if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['marketing']
     <!-- question 3 si site vitrine et 1 à 10 pages -->
     <!-- question 4 si site vitrine One page et seo oui -->
     <div id="block_blog">
-        <label>Dans votre site, un espace "Blog" sera utile ?</label><br/>
+        <label>Dans votre site, un espace "Blog" sera-t-il utile ?</label><br/>
         <input type="radio" name="blog" value="yes" />Oui
         <br/>
         <input type="radio" name="blog" value="no" />Non
@@ -150,7 +86,7 @@ if (isset($_POST['site']) && isset($_POST['pages']) && isset($_POST['marketing']
     </div>
        
     <br/>
-            <input type="submit" value="Envoyez" />
+            <input type="submit" name="sendForm" value="Envoyez" />
         </form>
 
 

@@ -8,7 +8,7 @@
 
 <H1>Commencez votre projet web : demandez un devis</H1>
 
-<h2>L'offre la plus adaptée à vos besoins est notre pack Premium.</h2>
+<h2>La solution la plus adaptée à vos besoins est notre offre : "Site E-commerce - Pack Premium".</h2>
 
 <h3>349€ HT/mois</h3>
 
@@ -30,7 +30,10 @@ Cet accompagnement personnalisé comprend :
 
 <h2>Contactez-nous pour en savoir plus !</h2>
 
-<form method="post" action="sendMail/send.php">
+<form method="post" action="">
+
+    <?php wp_nonce_field('sendMsgClient', 'messageClient'); ?>
+
     Nom : <input name="lastname" type="text" required/><br/>
     Prénom : <input name="firstname" type="text" required /><br/>
     Mail :<input name="email" type="email" required /><br/>
@@ -39,8 +42,8 @@ Cet accompagnement personnalisé comprend :
     Entreprise : <input name="enterprise" type="text"/><br/>
     Message :<textarea name="message" cols="50" rows="5"></textarea><br/><br/>
 
-    <input name="pack" type="hidden" value="Site Vitrine : Pack Starter"/>
-    <input type="submit" value="Envoyez" />
+    <input name="pack" type="hidden" value="Site E-commerce : Pack Premium"/>
+    <input type="submit" name="validateMsgClient" value="Envoyez" />
 </form>
 
 </body>
